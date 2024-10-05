@@ -1,25 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public Button button;
+    public string newScene;
 
-        Debug.Log("MyFirstScript");
-        
+    private void Start()
+    {
+        button.onClick.AddListener(OnButtonClick);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnButtonClick()
     {
-        if(Input.GetKeyDown(KeyCode.F)){
-		        Debug.Log("F pressed");
-
-		}
-
-        Debug.Log("MyFirstScript Updates");
+        Debug.Log("button pressed");
+        SceneManager.LoadScene(newScene);
     }
 }
